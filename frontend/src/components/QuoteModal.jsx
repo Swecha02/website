@@ -82,7 +82,7 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
           >
             <div className="p-8">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-bold text-[#0C3B78]">Request a Quote</h2>
+                <h2 className="text-3xl font-bold text-primary">Request a Quote</h2>
                 <button
                   onClick={onClose}
                   className="p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -109,7 +109,7 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#499D46] focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -124,7 +124,7 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
                     value={formData.organization}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#499D46] focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                     placeholder="Hospital or Clinic Name"
                   />
                 </div>
@@ -140,7 +140,7 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#499D46] focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -155,7 +155,7 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
                     value={formData.phone}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#499D46] focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -171,14 +171,14 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
                     required
                     rows={4}
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#499D46] focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all resize-none"
                     placeholder={`Tell us about your requirements...`}
                   />
                 </div>
 
                 <Button 
                   type="submit"
-                  className="w-full bg-[#499D46] hover:bg-green-700 text-white"
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white"
                   size="lg"
                   disabled={isSubmitting}
                 >
