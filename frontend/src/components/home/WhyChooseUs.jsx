@@ -65,8 +65,8 @@ const WhyChooseUs = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all"
+                whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 <div className="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center mb-4">
                   <Icon className="w-7 h-7 text-white" />

@@ -96,7 +96,8 @@ const ProductsPage = ({ onGetQuoteClick }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col"
+                  whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 flex flex-col"
                 >
                   <div className="h-40 bg-white p-6 flex items-center justify-center border-b border-gray-100">
                     <div className={`flex items-center justify-center ${product.isLarge ? 'w-36 h-36' : 'w-28 h-28'}`}>

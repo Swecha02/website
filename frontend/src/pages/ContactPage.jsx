@@ -100,7 +100,8 @@ const ContactPage = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-secondary"
+                whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-secondary"
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-green-50 p-3 rounded-lg text-secondary">
@@ -118,7 +119,8 @@ const ContactPage = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary"
+                whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-primary"
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-blue-50 p-3 rounded-lg text-primary">
@@ -136,7 +138,8 @@ const ContactPage = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-secondary"
+                whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-secondary"
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-green-50 p-3 rounded-lg text-secondary">
@@ -157,7 +160,8 @@ const ContactPage = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.35 }}
-                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary"
+                whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-primary"
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-blue-50 p-3 rounded-lg text-primary">

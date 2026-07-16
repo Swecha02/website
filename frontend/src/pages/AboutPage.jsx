@@ -81,7 +81,7 @@ const AboutPage = () => {
               once: true
             }} transition={{
               duration: 0.6
-            }} className="bg-white rounded-2xl p-8 shadow-lg">
+            }} whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6">
                   <Target className="w-8 h-8 text-white" />
                 </div>
@@ -102,7 +102,7 @@ const AboutPage = () => {
             }} transition={{
               duration: 0.6,
               delay: 0.2
-            }} className="bg-white rounded-2xl p-8 shadow-lg">
+            }} whileHover={{ y: -8, transition: { duration: 0.3, delay: 0 } }} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
                   <Eye className="w-8 h-8 text-white" />
                 </div>
