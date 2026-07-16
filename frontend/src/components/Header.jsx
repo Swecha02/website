@@ -21,11 +21,11 @@ const Header = ({ onGetQuoteClick }) => {
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="bg-primary text-white py-2">
         <div className="container mx-auto px-4 flex justify-end items-center gap-6 text-sm">
-          <a href="tel:+919885839555" className="flex items-center gap-2 hover:text-secondary transition-colors">
+          <a href="tel:+919885839555" className="flex items-center gap-2 hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">
             <Phone className="w-4 h-4" />
             <span>Call Us</span> {/* Updated: Display only "Call Us" */}
           </a>
-          <a href="mailto:contact@yourswecha.com" className="flex items-center gap-2 hover:text-secondary transition-colors">
+          <a href="mailto:contact@yourswecha.com" className="flex items-center gap-2 hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">
             <Mail className="w-4 h-4" />
             <span>contact@yourswecha.com</span>
           </a>

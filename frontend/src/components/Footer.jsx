@@ -22,10 +22,10 @@ const Footer = () => {
           <div>
             <span className="text-lg font-semibold mb-4 block">Quick Links</span>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-sm text-gray-300 hover:text-secondary transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-sm text-gray-300 hover:text-secondary transition-colors">About Us</Link></li>
-              <li><Link to="/products" className="text-sm text-gray-300 hover:text-secondary transition-colors">Products</Link></li>
-              <li><Link to="/contact" className="text-sm text-gray-300 hover:text-secondary transition-colors">Contact</Link></li>
+              <li><Link to="/" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Home</Link></li>
+              <li><Link to="/about" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">About Us</Link></li>
+              <li><Link to="/products" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Products</Link></li>
+              <li><Link to="/contact" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Contact</Link></li>
             </ul>
           </div>
 
@@ -38,11 +38,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <Phone className="w-4 h-4 flex-shrink-0 text-accent" />
-                <a href="tel:+919885839555" className="hover:text-secondary transition-colors">+91 9885839555</a>
+                <a href="tel:+919885839555" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">+91 9885839555</a>
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <Mail className="w-4 h-4 flex-shrink-0 text-accent" />
-                <a href="mailto:contact@yourswecha.com" className="hover:text-secondary transition-colors">contact@yourswecha.com</a>
+                <a href="mailto:contact@yourswecha.com" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">contact@yourswecha.com</a>
               </li>
             </ul>
           </div>
@@ -65,7 +65,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Swecha Enterprises. All rights reserved. | Powered by Monarc Distribution Network
           </p>
           <p className="text-xs text-gray-400 mt-2">
-            <Link to="/privacy-policy" className="hover:text-secondary transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Privacy Policy</Link>
           </p>
         </div>
       </div>
