@@ -12,7 +12,7 @@
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 219 83% 27%; /* #0C3B78 */
     --primary-foreground: 210 40% 98%;
-    --secondary: 118 39% 44%; /* #499D46 */
+    --secondary: 118 39% 36%; /* #3A8038 — darkened from #499D46 for WCAG AA text/button contrast */
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;

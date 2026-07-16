@@ -185,7 +185,7 @@ const AboutPage = () => {
           }} transition={{
             duration: 0.6
           }} className="max-w-4xl mx-auto text-center">
-              <Users className="w-16 h-16 mx-auto mb-6 text-secondary" />
+              <Users className="w-16 h-16 mx-auto mb-6 text-accent" />
               <h2 className="text-4xl font-bold mb-6">Partnership with Monarc Distribution Network</h2>
               <p className="text-xl text-gray-200 leading-relaxed">
                 Monarc Distribution Network brings two decades of sales and distribution experience in the healthcare space. Their network, combined with our product expertise, is how we reach hospitals and clinics across India.

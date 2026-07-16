@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <span className="text-lg font-semibold mb-4 block text-secondary">Quick Links</span>
+            <span className="text-lg font-semibold mb-4 block">Quick Links</span>
             <ul className="space-y-2">
               <li><Link to="/" className="text-sm text-gray-300 hover:text-secondary transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-sm text-gray-300 hover:text-secondary transition-colors">About Us</Link></li>
@@ -30,25 +30,25 @@ const Footer = () => {
           </div>
 
           <div>
-            <span className="text-lg font-semibold mb-4 block text-secondary">Contact Info</span>
+            <span className="text-lg font-semibold mb-4 block">Contact Info</span>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-gray-300">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-secondary" />
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-accent" />
                 <span>11-3-664/238/A/29, Sajeevapuram, Parsigutta, Hyderabad, Telangana, India - 500061</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
-                <Phone className="w-4 h-4 flex-shrink-0 text-secondary" />
+                <Phone className="w-4 h-4 flex-shrink-0 text-accent" />
                 <a href="tel:+919885839555" className="hover:text-secondary transition-colors">+91 9885839555</a>
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
-                <Mail className="w-4 h-4 flex-shrink-0 text-secondary" />
+                <Mail className="w-4 h-4 flex-shrink-0 text-accent" />
                 <a href="mailto:contact@yourswecha.com" className="hover:text-secondary transition-colors">contact@yourswecha.com</a>
               </li>
             </ul>
           </div>
 
           <div>
-            <span className="text-lg font-semibold mb-4 block text-secondary">Follow Us</span>
+            <span className="text-lg font-semibold mb-4 block">Follow Us</span>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/share/1DHtDMggcz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Swecha Enterprises on Facebook" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
                 <Facebook className="w-5 h-5" />
