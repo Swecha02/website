@@ -66,11 +66,18 @@ function formatCell(key, value) {
   return value ?? '-';
 }
 
+// Neutralize CSV formula injection: a cell value starting with =, +, -, @, tab,
+// or CR would run as a formula when opened in Excel/Sheets. These cells come
+// from public, unauthenticated form submissions, so an attacker could plant one.
+function sanitizeCsvCell(value) {
+  return /^[=+\-@\t\r]/.test(value) ? `'${value}` : value;
+}
+
 function toCsv(columns, rows) {
   const header = columns.map((c) => `"${c.label.replace(/"/g, '""')}"`).join(',');
   const lines = rows.map((row) =>
     columns
-      .map((c) => `"${String(formatCell(c.key, row[c.key])).replace(/"/g, '""')}"`)
+      .map((c) => `"${sanitizeCsvCell(String(formatCell(c.key, row[c.key]))).replace(/"/g, '""')}"`)
       .join(',')
   );
   return [header, ...lines].join('\n');
