@@ -103,15 +103,55 @@ server {
 
     location / {
         try_files $uri /index.html;
+
+        # Security headers - Helmet (backend/server.js) only covers /api/ JSON
+        # responses, so the static site needs its own copy or ships with none.
+        add_header Content-Security-Policy "default-src 'self'; base-uri 'self'; font-src 'self' https: data:; form-action 'self'; frame-ancestors 'self'; frame-src 'self' https://www.google.com https://maps.google.com; img-src 'self' data: https://images.unsplash.com; object-src 'none'; script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; upgrade-insecure-requests" always;
+        add_header Cross-Origin-Opener-Policy "same-origin" always;
+        add_header Cross-Origin-Resource-Policy "same-origin" always;
+        add_header Origin-Agent-Cluster "?1" always;
+        add_header Referrer-Policy "no-referrer" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-DNS-Prefetch-Control "off" always;
+        add_header X-Download-Options "noopen" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Permitted-Cross-Domain-Policies "none" always;
+        add_header X-XSS-Protection "0" always;
     }
 
     location /api/ {
         proxy_pass http://localhost:4000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
+        # Trust Cloudflare's CF-Connecting-IP (set at their edge, not client-forgeable)
+        # rather than appending to a client-supplied X-Forwarded-For - the latter lets
+        # anyone spoof req.ip and bypass IP-based rate limiting. Only safe because the
+        # firewall (see below) restricts inbound 80/443 to Cloudflare's ranges, so this
+        # header can't reach us from anywhere else.
+        proxy_set_header X-Forwarded-For $http_cf_connecting_ip;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
 ```
+
+The `img-src`/`frame-src`/`script-src` allowances above (Unsplash, Google Maps,
+Cloudflare's beacon) match what this specific site currently embeds - adjust if
+you add or remove third-party embeds, or the browser console will show CSP
+`Refused to ...` errors for the blocked resource.
+
+Restrict the firewall to Cloudflare's IP ranges too (otherwise the origin is
+reachable directly, bypassing both Cloudflare's protection and the
+CF-Connecting-IP trust above):
+```bash
+sudo ufw allow 22
+for cidr in $(curl -s https://www.cloudflare.com/ips-v4) $(curl -s https://www.cloudflare.com/ips-v6); do
+  sudo ufw allow from "$cidr" to any port 80,443 proto tcp comment 'Cloudflare'
+done
+sudo ufw enable
+```
+(Cloudflare's ranges change occasionally - re-run this periodically, or script
+it against https://www.cloudflare.com/ips-v4 and -v6.)
 Replace `YOURUSER` with your actual VPS username, then:
 ```bash
 sudo ln -s /etc/nginx/sites-available/yourswecha.com /etc/nginx/sites-enabled/
