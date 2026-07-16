@@ -178,7 +178,7 @@ const QuoteModal = ({ isOpen, onClose, subject }) => {
 
                 <Button 
                   type="submit"
-                  className="w-full bg-secondary hover:bg-secondary/90 text-white"
+                  className="w-full bg-secondary hover:bg-secondary-hover text-white hover:text-primary"
                   size="lg"
                   disabled={isSubmitting}
                 >

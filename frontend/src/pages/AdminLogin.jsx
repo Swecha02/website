@@ -85,7 +85,7 @@ const AdminLogin = () => {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-primary hover:bg-primary/90 h-11 text-base font-semibold"
+                className="w-full bg-primary hover:bg-primary-hover hover:text-primary h-11 text-base font-semibold"
               >
                 {isLoading ? (
                   <>

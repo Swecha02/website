@@ -62,7 +62,7 @@ const Header = ({ onGetQuoteClick }) => {
                 )}
               </Link>
             ))}
-            <Button onClick={onGetQuoteClick} className="bg-secondary hover:bg-secondary/90 text-white">
+            <Button onClick={onGetQuoteClick} className="bg-secondary hover:bg-secondary-hover text-white hover:text-primary">
               Get Quote
             </Button>
           </div>
@@ -96,7 +96,7 @@ const Header = ({ onGetQuoteClick }) => {
                 {item.name}
               </Link>
             ))}
-            <Button onClick={() => { onGetQuoteClick(); setIsMenuOpen(false); }} className="w-full bg-secondary hover:bg-secondary/90 text-white">
+            <Button onClick={() => { onGetQuoteClick(); setIsMenuOpen(false); }} className="w-full bg-secondary hover:bg-secondary-hover text-white hover:text-primary">
               Get Quote
             </Button>
           </motion.div>

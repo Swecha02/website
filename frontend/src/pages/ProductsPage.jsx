@@ -125,7 +125,7 @@ const ProductsPage = ({ onGetQuoteClick }) => {
                     </ul>
 
                     <Button 
-                      className="w-full mt-auto bg-secondary hover:bg-secondary/90 text-white"
+                      className="w-full mt-auto bg-secondary hover:bg-secondary-hover text-white hover:text-primary"
                       onClick={() => handleInquiry(product.category)}
                     >
                       Request Information
@@ -154,7 +154,7 @@ const ProductsPage = ({ onGetQuoteClick }) => {
               </p>
               <Button 
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white"
+                className="bg-primary hover:bg-primary-hover text-white hover:text-primary"
                 onClick={() => onGetQuoteClick('Specialized Equipment Inquiry')}
               >
                 Contact Our Experts

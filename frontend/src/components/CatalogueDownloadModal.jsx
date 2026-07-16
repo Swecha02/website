@@ -273,7 +273,7 @@ const CatalogueDownloadModal = ({ isOpen, onClose }) => {
                 <div className="pt-2">
                   <Button 
                     type="submit"
-                    className="w-full h-12 text-lg font-semibold bg-primary hover:bg-primary/90 text-white rounded-lg shadow-md transition-all flex items-center justify-center gap-2"
+                    className="w-full h-12 text-lg font-semibold bg-primary hover:bg-primary-hover text-white hover:text-primary rounded-lg shadow-md transition-all flex items-center justify-center gap-2"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

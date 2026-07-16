@@ -265,7 +265,7 @@ const ContactPage = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg h-auto"
+                  className="w-full md:w-auto bg-secondary hover:bg-secondary-hover text-white hover:text-primary px-8 py-6 text-lg h-auto"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (

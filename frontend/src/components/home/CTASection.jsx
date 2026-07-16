@@ -27,7 +27,7 @@ const CTASection = ({ onGetQuoteClick }) => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-primary hover:bg-primary-hover text-white hover:text-primary font-semibold shadow-lg hover:shadow-xl transition-all"
               onClick={() => onGetQuoteClick('General Quote')}
             >
               Request a Quote
@@ -35,7 +35,7 @@ const CTASection = ({ onGetQuoteClick }) => {
             </Button>
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-primary hover:bg-primary-hover text-white hover:text-primary font-semibold shadow-lg hover:shadow-xl transition-all"
               onClick={() => window.location.href = 'tel:+919885839555'}
             >
               <Phone className="mr-2 w-5 h-5" />

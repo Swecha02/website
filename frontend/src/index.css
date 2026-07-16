@@ -24,6 +24,8 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 219 83% 27%; /* #0C3B78 */
     --radius: 0.5rem;
+    --primary-hover: 118 45% 85%; /* #C9EAC8 — light green, hover bg for navy buttons */
+    --secondary-hover: 220 55% 85%; /* #C4D2EE — light blue, hover bg for green buttons */
   }
 }
 

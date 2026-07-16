@@ -107,7 +107,7 @@ const QRLandingPage = () => {
           <motion.div variants={itemVariants} className="w-full space-y-4">
             <Button
               onClick={handleDownloadClick}
-              className="w-full h-[4.5rem] text-base md:text-lg font-semibold bg-primary hover:bg-primary/90 text-white rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 group"
+              className="w-full h-[4.5rem] text-base md:text-lg font-semibold bg-primary hover:bg-primary-hover text-white hover:text-primary rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 group"
             >
               <div className="bg-white/10 p-2 rounded-lg group-hover:bg-white/20 transition-colors">
                 <Download className="w-6 h-6" />
@@ -123,7 +123,7 @@ const QRLandingPage = () => {
               onClick={handleWhatsAppClick}
             >
               <Button
-                className="w-full h-[4.5rem] text-base md:text-lg font-semibold bg-secondary hover:bg-secondary/90 text-white rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 group"
+                className="w-full h-[4.5rem] text-base md:text-lg font-semibold bg-secondary hover:bg-secondary-hover text-white hover:text-primary rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 group"
               >
                 <div className="bg-white/10 p-2 rounded-lg group-hover:bg-white/20 transition-colors">
                   <MessageCircle className="w-6 h-6" />

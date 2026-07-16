@@ -88,7 +88,7 @@ const HeroSection = ({ onGetQuoteClick }) => {
         >
           <Button
             size="lg"
-            className="bg-secondary hover:bg-secondary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+            className="bg-secondary hover:bg-secondary-hover text-white hover:text-primary font-semibold shadow-lg hover:shadow-xl transition-all"
             onClick={() => onGetQuoteClick('Hero Section Quote Request')}
           >
             Get a Quote
@@ -96,7 +96,7 @@ const HeroSection = ({ onGetQuoteClick }) => {
           </Button>
           <Button
             size="lg"
-            className="bg-primary hover:bg-secondary text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+            className="bg-primary hover:bg-primary-hover text-white hover:text-primary font-semibold shadow-lg hover:shadow-xl transition-all"
             onClick={() => window.location.href = 'tel:+919885839555'} // Added phone link to Contact Us button
           >
             Contact Us
