@@ -106,7 +106,7 @@ server {
 
         # Security headers - Helmet (backend/server.js) only covers /api/ JSON
         # responses, so the static site needs its own copy or ships with none.
-        add_header Content-Security-Policy "default-src 'self'; base-uri 'self'; font-src 'self' https: data:; form-action 'self'; frame-ancestors 'self'; frame-src 'self' https://www.google.com https://maps.google.com; img-src 'self' data: https://images.unsplash.com; object-src 'none'; script-src 'self' https://static.cloudflareinsights.com; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; upgrade-insecure-requests" always;
+        add_header Content-Security-Policy "default-src 'self'; base-uri 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; font-src 'self' https: data:; form-action 'self'; frame-ancestors 'self'; frame-src 'self' https://www.google.com https://maps.google.com; img-src 'self' data: https://images.unsplash.com; object-src 'none'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com; script-src-attr 'none'; style-src 'self' https: 'unsafe-inline'; upgrade-insecure-requests" always;
         add_header Cross-Origin-Opener-Policy "same-origin" always;
         add_header Cross-Origin-Resource-Policy "same-origin" always;
         add_header Origin-Agent-Cluster "?1" always;
