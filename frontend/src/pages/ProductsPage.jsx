@@ -67,6 +67,7 @@ const ProductsPage = ({ onGetQuoteClick }) => {
       <Helmet>
         <title>Products - Swecha Enterprises | Physiotherapy Equipment Catalog</title>
         <meta name="description" content="Browse our comprehensive range of physiotherapy and rehabilitation equipment including exercise machines, treatment tables, therapeutic modalities, and more." />
+        <link rel="canonical" href="https://swechaenterprises.com/products" />
       </Helmet>
 
       <div className="min-h-screen">

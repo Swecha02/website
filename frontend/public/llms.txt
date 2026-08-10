@@ -1,7 +1,7 @@
 ## Pages
 - [About Us - Swecha Enterprises | Since 2017](/about): Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017, in partnership with Monarc Distribution Network.
 - [Admin Login - Swecha Enterprises](/adminlogin): No description available
-- [Connect - Swecha Enterprises](/qrlanding): Trusted Partner for Physiotherapy & Rehab Equipment in Telangana & Andra Pradesh. Download catalogue or contact us.
+- [Connect - Swecha Enterprises](/qrlanding): Trusted Partner for Physiotherapy & Rehab Equipment in Telangana & Andhra Pradesh. Download catalogue or contact us.
 - [Contact Us - Swecha Enterprises | Get a Quote](/contact): Contact Swecha Enterprises for physiotherapy equipment quotes, service inquiries, or general questions. We are here to help with all your rehabilitation needs.
 - [Dashboard - Swecha Admin](/admindashboard): No description available
 - [Privacy Policy - Swecha Enterprises](/privacypolicy): Swecha Enterprises

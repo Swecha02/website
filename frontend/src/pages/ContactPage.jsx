@@ -71,6 +71,7 @@ const ContactPage = () => {
       <Helmet>
         <title>Contact Us - Swecha Enterprises | Get a Quote</title>
         <meta name="description" content="Contact Swecha Enterprises for physiotherapy equipment quotes, service inquiries, or general questions. We are here to help with all your rehabilitation needs." />
+        <link rel="canonical" href="https://swechaenterprises.com/contact" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">

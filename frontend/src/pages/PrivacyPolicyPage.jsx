@@ -14,6 +14,7 @@ const PrivacyPolicyPage = () => {
       <Helmet>
         <title>Privacy Policy - Swecha Enterprises</title>
         <meta name="description" content="Swecha Enterprises' Privacy Policy: how we collect, use, store, and protect information submitted through swechaenterprises.com." />
+        <link rel="canonical" href="https://swechaenterprises.com/privacy-policy" />
       </Helmet>
 
       <div className="min-h-screen">

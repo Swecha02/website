@@ -7,6 +7,7 @@ const AboutPage = () => {
       <Helmet>
         <title>About Us - Swecha Enterprises | Since 2017</title>
         <meta name="description" content="Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017, in partnership with Monarc Distribution Network." />
+        <link rel="canonical" href="https://swechaenterprises.com/about" />
       </Helmet>
 
       <div className="min-h-screen">

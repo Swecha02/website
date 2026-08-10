@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const CLEAN_CONTENT_REGEX = {
-  comments: /\/\*[\s\S]*?\*\/|\/\/.*$/gm,
+  comments: /\/\*[\s\S]*?\*\/|(?<!:)\/\/.*$/gm,
   templateLiterals: /`[\s\S]*?`/g,
   strings: /'[^']*'|"[^"]*"/g,
   jsxExpressions: /\{.*?\}/g,
@@ -103,8 +103,9 @@ function extractHelmetData(content, filePath, routes) {
   const description = cleanText(descMatch?.[1]);
   
   const fileName = path.basename(filePath, path.extname(filePath));
-  const url = routes.length && routes.has(fileName) 
-    ? routes.get(fileName) 
+  const hasRoutes = (routes.size ?? routes.length) > 0;
+  const url = hasRoutes && routes.has(fileName)
+    ? routes.get(fileName)
     : generateFallbackUrl(fileName);
   
   return {
@@ -121,11 +122,39 @@ function generateFallbackUrl(fileName) {
 
 function generateLlmsTxt(pages) {
   const sortedPages = pages.sort((a, b) => a.title.localeCompare(b.title));
-  const pageEntries = sortedPages.map(page => 
+  const pageEntries = sortedPages.map(page =>
     `- [${page.title}](${page.url}): ${page.description}`
   ).join('\n');
-  
+
   return `## Pages\n${pageEntries}`;
+}
+
+const SITE_ORIGIN = 'https://swechaenterprises.com';
+
+// Hand-maintained: matches the public <Route> paths in src/App.jsx. Not derived
+// from App.jsx automatically — the JSX there nests <Route>/element deep enough
+// (StandaloneLayout wrappers, nested onGetQuoteClick={} braces) that a regex
+// can't reliably resolve path -> component without a real JSX parser, which
+// is overkill for a handful of routes on a small static site. Add a line here
+// whenever a new public page/route is added.
+const PUBLIC_ROUTES = [
+  { url: '/', priority: '1.0' },
+  { url: '/about', priority: '0.8' },
+  { url: '/products', priority: '0.8' },
+  { url: '/contact', priority: '0.8' },
+  { url: '/connect', priority: '0.5' },
+  { url: '/privacy-policy', priority: '0.3' },
+];
+
+function generateSitemapXml() {
+  const today = new Date().toISOString().slice(0, 10);
+  const urlEntries = PUBLIC_ROUTES
+    .map(({ url, priority }) =>
+      `  <url>\n    <loc>${SITE_ORIGIN}${url}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`
+    )
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`;
 }
 
 function ensureDirectoryExists(dirPath) {
@@ -170,9 +199,13 @@ function main() {
 
   const llmsTxtContent = generateLlmsTxt(pages);
   const outputPath = path.join(process.cwd(), 'public', 'llms.txt');
-  
+
   ensureDirectoryExists(path.dirname(outputPath));
   fs.writeFileSync(outputPath, llmsTxtContent, 'utf8');
+
+  const sitemapContent = generateSitemapXml();
+  const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+  fs.writeFileSync(sitemapPath, sitemapContent, 'utf8');
 }
 
 const isMainModule = import.meta.url === `file://${process.argv[1]}`;

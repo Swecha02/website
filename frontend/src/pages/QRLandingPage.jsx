@@ -60,7 +60,8 @@ const QRLandingPage = () => {
     <>
       <Helmet>
         <title>Connect - Swecha Enterprises</title>
-        <meta name="description" content="Trusted Partner for Physiotherapy & Rehab Equipment in Telangana & Andra Pradesh. Download catalogue or contact us." />
+        <meta name="description" content="Trusted Partner for Physiotherapy & Rehab Equipment in Telangana & Andhra Pradesh. Download catalogue or contact us." />
+        <link rel="canonical" href="https://swechaenterprises.com/connect" />
       </Helmet>
 
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6 relative overflow-hidden font-sans">

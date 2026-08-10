@@ -12,6 +12,7 @@ const HomePage = ({ onGetQuoteClick }) => {
       <Helmet>
         <title>Swecha Enterprises - Leading Physiotherapy & Rehabilitation Equipment Distributor</title>
         <meta name="description" content="Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017. One point of contact, start to finish. Get a quote for your facility." />
+        <link rel="canonical" href="https://swechaenterprises.com/" />
       </Helmet>
       <div>
         <HeroSection onGetQuoteClick={onGetQuoteClick} />
