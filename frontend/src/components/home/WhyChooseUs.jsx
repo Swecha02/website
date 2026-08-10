@@ -15,8 +15,8 @@ const features = [
   },
   {
     icon: Headphones,
-    title: 'Hands-On Support',
-    description: 'Direct access to our team for installation, servicing, and spare parts',
+    title: 'One Point of Contact',
+    description: 'One point of contact, start to finish — installation, servicing, spare parts, and staff training, all through our team',
   },
   {
     icon: TrendingUp,

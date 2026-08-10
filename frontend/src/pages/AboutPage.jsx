@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Award, Target, Eye, Users, TrendingUp, Heart } from 'lucide-react';
+import { Award, Target, Eye, Users, TrendingUp, Heart, Phone } from 'lucide-react';
 const AboutPage = () => {
   return <>
       <Helmet>
@@ -88,7 +88,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-primary mb-4">Our Mission</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To equip hospitals and rehab centers across Andhra Pradesh and Telangana with reliable physiotherapy and rehabilitation equipment — from therapeutic modalities to advanced robotic systems — so their teams can focus on patient care.
+                  To equip hospitals and rehab centers across Andhra Pradesh and Telangana with reliable physiotherapy and rehabilitation equipment — from therapeutic modalities to advanced robotic systems — so their teams can focus on patient care, not equipment downtime.
                 </p>
               </motion.div>
 
@@ -109,7 +109,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-primary mb-4">Our Vision</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To be India's most trusted distributor of physiotherapy and rehabilitation equipment — known for reliability, not just reach.
+                  To be Andhra Pradesh and Telangana's most trusted physiotherapy and rehabilitation equipment distributor — known for continuity, not just catalog size.
                 </p>
               </motion.div>
             </div>
@@ -135,8 +135,12 @@ const AboutPage = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[{
+              icon: Phone,
+              title: 'One Point of Contact',
+              description: 'From quotation to installation to service, you call one team, not two. No handoffs, no chasing.'
+            }, {
               icon: Award,
               title: 'Quality Excellence',
               description: 'We stand behind every product we distribute — no shortcuts on what goes into a clinic'
