@@ -25,9 +25,9 @@ const Header = ({ onGetQuoteClick }) => {
             <Phone className="w-4 h-4" />
             <span>Call Us</span> {/* Updated: Display only "Call Us" */}
           </a>
-          <a href="mailto:contact@yourswecha.com" className="flex items-center gap-2 hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">
+          <a href="mailto:contact@swechaenterprises.com" className="flex items-center gap-2 hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">
             <Mail className="w-4 h-4" />
-            <span>contact@yourswecha.com</span>
+            <span>contact@swechaenterprises.com</span>
           </a>
         </div>
       </div>

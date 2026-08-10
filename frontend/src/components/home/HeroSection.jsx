@@ -78,7 +78,7 @@ const HeroSection = ({ onGetQuoteClick }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
         >
-          Supplying physiotherapy and rehabilitation equipment to hospitals and clinics across India since 2017.
+          Exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017. One point of contact, start to finish.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -15,7 +15,7 @@ const Footer = () => {
               loading="lazy"
             />
             <p className="text-sm text-gray-300 leading-relaxed">
-              Supplying physiotherapy and rehabilitation equipment to hospitals and clinics across India since 2017.
+              Exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017. One point of contact, start to finish.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <Mail className="w-4 h-4 flex-shrink-0 text-accent" />
-                <a href="mailto:contact@yourswecha.com" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">contact@yourswecha.com</a>
+                <a href="mailto:contact@swechaenterprises.com" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">contact@swechaenterprises.com</a>
               </li>
             </ul>
           </div>
@@ -62,7 +62,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-300">
-            © {new Date().getFullYear()} Swecha Enterprises. All rights reserved. | Powered by Monarc Distribution Network
+            © {new Date().getFullYear()} Swecha Enterprises. All rights reserved.
           </p>
           <p className="text-xs text-gray-400 mt-2">
             <Link to="/privacy-policy" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Privacy Policy</Link>

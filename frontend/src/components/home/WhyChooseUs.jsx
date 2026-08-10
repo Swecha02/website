@@ -26,7 +26,7 @@ const features = [
   {
     icon: CheckCircle,
     title: 'Hyderabad-Based Distribution',
-    description: 'Warehouse and distribution center in IDA Kukatpally, serving facilities across India',
+    description: 'Warehouse and distribution center in IDA Kukatpally, serving facilities across Andhra Pradesh and Telangana',
   },
   {
     icon: Users,
@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
             Why Choose Swecha Enterprises?
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Nine years supplying hospitals and clinics across India
+            Nine years as the exclusive distributor for Andhra Pradesh and Telangana
           </p>
         </motion.div>
 

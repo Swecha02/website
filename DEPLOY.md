@@ -1,4 +1,4 @@
-# Deploying yourswecha.com to your Hostinger KVM 2 VPS
+# Deploying swechaenterprises.com to your Hostinger KVM 2 VPS
 
 This replaces Supabase entirely with a self-hosted setup:
 - **Postgres** for the database (5 tables + 1 admin_users table)
@@ -57,7 +57,7 @@ Fill in:
 - `PGUSER` / `PGPASSWORD` / `PGDATABASE` — from step 2
 - `JWT_SECRET` — generate with `openssl rand -base64 48`
 - `SMTP_*` — your email provider's SMTP details (Hostinger email works fine)
-- `CORS_ORIGIN` — set to `https://yourswecha.com` once DNS is pointed here
+- `CORS_ORIGIN` — set to `https://swechaenterprises.com` once DNS is pointed here
 
 Install and create your admin login:
 ```bash
@@ -82,7 +82,7 @@ The API now runs on `http://localhost:4000` (internal only — not exposed yet).
 ```bash
 cd ../frontend
 cp .env.example .env
-nano .env   # set VITE_API_URL=https://yourswecha.com (Nginx will route /api to the backend)
+nano .env   # set VITE_API_URL=https://swechaenterprises.com (Nginx will route /api to the backend)
 npm install
 npm run build
 ```
@@ -91,12 +91,12 @@ This produces a `dist/` folder — that's your entire static site.
 ## 5. Nginx: one config, two jobs (static files + API proxy)
 
 ```bash
-sudo nano /etc/nginx/sites-available/yourswecha.com
+sudo nano /etc/nginx/sites-available/swechaenterprises.com
 ```
 ```nginx
 server {
     listen 80;
-    server_name yourswecha.com www.yourswecha.com;
+    server_name swechaenterprises.com www.swechaenterprises.com;
 
     root /home/YOURUSER/frontend/dist;
     index index.html;
@@ -154,25 +154,25 @@ sudo ufw enable
 it against https://www.cloudflare.com/ips-v4 and -v6.)
 Replace `YOURUSER` with your actual VPS username, then:
 ```bash
-sudo ln -s /etc/nginx/sites-available/yourswecha.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/swechaenterprises.com /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
 ## 6. Point your domain and get SSL
 
-In Hostinger's DNS panel, make sure `yourswecha.com` (and `www`) A-records
+In Hostinger's DNS panel, make sure `swechaenterprises.com` (and `www`) A-records
 point at your VPS's IP. Once that's propagated:
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d yourswecha.com -d www.yourswecha.com
+sudo certbot --nginx -d swechaenterprises.com -d www.swechaenterprises.com
 ```
 Certbot edits the Nginx config for HTTPS and sets up auto-renewal.
 
 ## 7. Verify
 
-- `https://yourswecha.com` loads the site
+- `https://swechaenterprises.com` loads the site
 - Submit the contact form → check `psql` for a new row in `contact_submissions`, and check your inbox for the notification email
-- `https://yourswecha.com/admin` → log in with the admin email/password you created in step 3
+- `https://swechaenterprises.com/admin` → log in with the admin email/password you created in step 3
 - Dashboard charts load without errors (open browser devtools → Network tab if anything looks empty)
 
 ---

@@ -13,7 +13,7 @@ const PrivacyPolicyPage = () => {
     <>
       <Helmet>
         <title>Privacy Policy - Swecha Enterprises</title>
-        <meta name="description" content="Swecha Enterprises' Privacy Policy: how we collect, use, store, and protect information submitted through yourswecha.com." />
+        <meta name="description" content="Swecha Enterprises' Privacy Policy: how we collect, use, store, and protect information submitted through swechaenterprises.com." />
       </Helmet>
 
       <div className="min-h-screen">
@@ -40,7 +40,7 @@ const PrivacyPolicyPage = () => {
               className="max-w-3xl mx-auto prose-policy"
             >
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Swecha Enterprises ("Swecha," "we," "us," or "our") operates the website yourswecha.com (the "Site"). This Privacy Policy explains how we collect, use, store, and protect information when you visit our Site or submit an inquiry, in accordance with the Digital Personal Data Protection Act, 2023 ("DPDP Act") and applicable Indian law.
+                Swecha Enterprises ("Swecha," "we," "us," or "our") operates the website swechaenterprises.com (the "Site"). This Privacy Policy explains how we collect, use, store, and protect information when you visit our Site or submit an inquiry, in accordance with the Digital Personal Data Protection Act, 2023 ("DPDP Act") and applicable Indian law.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-12">
                 By using this Site, you agree to the practices described in this Policy.
@@ -53,7 +53,7 @@ const PrivacyPolicyPage = () => {
               <p className="text-gray-700 leading-relaxed mb-4">
                 <strong>Registered Address:</strong> 11-3-664/238/A/29, Sajeevapuram, Parsigutta, Hyderabad, Telangana – 500061
                 <br />
-                <strong>Email:</strong> contact@yourswecha.com
+                <strong>Email:</strong> contact@swechaenterprises.com
                 <br />
                 <strong>Phone:</strong> +91 9885839555
               </p>
@@ -125,7 +125,7 @@ const PrivacyPolicyPage = () => {
                 <li>Register a complaint regarding how your data is handled</li>
               </ul>
               <p className="text-gray-700 leading-relaxed mb-4">
-                To exercise any of these rights, contact us at <a href="mailto:contact@yourswecha.com" className="text-primary font-semibold hover:underline">contact@yourswecha.com</a>. We will respond within a reasonable timeframe.
+                To exercise any of these rights, contact us at <a href="mailto:contact@swechaenterprises.com" className="text-primary font-semibold hover:underline">contact@swechaenterprises.com</a>. We will respond within a reasonable timeframe.
               </p>
 
               <h2 className="text-2xl font-bold text-primary mt-12 mb-4">9. Cookies</h2>
@@ -152,13 +152,13 @@ const PrivacyPolicyPage = () => {
                 <br />
                 11-3-664/238/A/29, Sajeevapuram, Parsigutta, Hyderabad, Telangana – 500061
                 <br />
-                contact@yourswecha.com | +91 9885839555
+                contact@swechaenterprises.com | +91 9885839555
               </p>
 
               <hr className="border-gray-200 mb-8" />
 
               <p className="text-sm text-gray-500 leading-relaxed italic">
-                Note: This document is a general template designed to align with DPDP Act principles and covers the current data flows on yourswecha.com (contact/quote forms only). It is not a substitute for legal review. If Swecha adds analytics, e-commerce, payment processing, or third-party marketing tools in the future, this policy should be reviewed and updated accordingly — ideally by a lawyer familiar with Indian data protection law.
+                Note: This document is a general template designed to align with DPDP Act principles and covers the current data flows on swechaenterprises.com (contact/quote forms only). It is not a substitute for legal review. If Swecha adds analytics, e-commerce, payment processing, or third-party marketing tools in the future, this policy should be reviewed and updated accordingly — ideally by a lawyer familiar with Indian data protection law.
               </p>
             </motion.div>
           </div>

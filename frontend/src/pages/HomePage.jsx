@@ -11,7 +11,7 @@ const HomePage = ({ onGetQuoteClick }) => {
     <>
       <Helmet>
         <title>Swecha Enterprises - Leading Physiotherapy & Rehabilitation Equipment Distributor</title>
-        <meta name="description" content="Swecha Enterprises has supplied physiotherapy and rehabilitation equipment to hospitals and clinics across India since 2017. Get a quote for your facility." />
+        <meta name="description" content="Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017. One point of contact, start to finish. Get a quote for your facility." />
       </Helmet>
       <div>
         <HeroSection onGetQuoteClick={onGetQuoteClick} />

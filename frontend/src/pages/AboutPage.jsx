@@ -6,7 +6,7 @@ const AboutPage = () => {
   return <>
       <Helmet>
         <title>About Us - Swecha Enterprises | Since 2017</title>
-        <meta name="description" content="Swecha Enterprises has supplied physiotherapy and rehabilitation equipment to hospitals and clinics across India since 2017, in partnership with Monarc Distribution Network." />
+        <meta name="description" content="Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017, in partnership with Monarc Distribution Network." />
       </Helmet>
 
       <div className="min-h-screen">
@@ -23,7 +23,7 @@ const AboutPage = () => {
           }} className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">About Swecha Enterprises</h1>
               <p className="text-xl text-gray-200">
-                Supplying physiotherapy and rehabilitation equipment to hospitals and clinics across India since 2017
+                Exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017
               </p>
             </motion.div>
           </div>
@@ -44,8 +44,9 @@ const AboutPage = () => {
               duration: 0.6
             }}>
                 <h2 className="text-4xl font-bold text-primary mb-6">Our Journey</h2>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">Founded in 2017, Swecha Enterprises set out with a clear goal: to be a dependable source of physiotherapy and rehabilitation equipment for India's hospitals and clinics.</p>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">Over nine years, that focus has grown into specialized knowledge of the sector. Our partnership with Monarc Distribution Network — with two decades in sales and distribution — extends our reach across India's hospitals and clinics.</p>
+                <p className="text-lg text-gray-700 mb-4 leading-relaxed">Founded in 2017, Swecha Enterprises set out with a clear goal: to be a dependable source of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana's hospitals and clinics.</p>
+                <p className="text-lg text-gray-700 mb-4 leading-relaxed">Swecha (స్వేచ్ఛ) means freedom — and the name wasn't picked for how it sounds. It came from watching people, often women, who never got the freedom to grow on their own terms. That idea is why this company carries the name it does.</p>
+                <p className="text-lg text-gray-700 mb-4 leading-relaxed">Over nine years, that focus has grown into specialized knowledge of the sector. We're the exclusive distributor for Andhra Pradesh and Telangana, backed by Monarc Distribution Network's two decades of sales, distribution, and national service experience.</p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Today, we supply everything from treatment tables to robotic rehabilitation systems to facilities including AIG Hospitals, Continental Hospitals, and DakshinRehab.
                 </p>
@@ -87,7 +88,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-primary mb-4">Our Mission</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To equip hospitals and rehab centers across India with reliable physiotherapy and rehabilitation equipment — from therapeutic modalities to advanced robotic systems — so their teams can focus on patient care.
+                  To equip hospitals and rehab centers across Andhra Pradesh and Telangana with reliable physiotherapy and rehabilitation equipment — from therapeutic modalities to advanced robotic systems — so their teams can focus on patient care.
                 </p>
               </motion.div>
 
@@ -188,7 +189,7 @@ const AboutPage = () => {
               <Users className="w-16 h-16 mx-auto mb-6 text-accent" />
               <h2 className="text-4xl font-bold mb-6">Partnership with Monarc Distribution Network</h2>
               <p className="text-xl text-gray-200 leading-relaxed">
-                Monarc Distribution Network brings two decades of sales and distribution experience in the healthcare space. Their network, combined with our product expertise, is how we reach hospitals and clinics across India.
+                Monarc Distribution Network brings two decades of sales, distribution, and national service experience in the healthcare space. As their exclusive distributor for Andhra Pradesh and Telangana, we combine that backing with local, first-line service and training for hospitals and clinics in our territory.
               </p>
             </motion.div>
           </div>

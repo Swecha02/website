@@ -129,7 +129,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="font-bold text-gray-900 text-lg mb-1">Email</h3>
                     <p className="text-gray-600 mb-1">For quotes and general inquiries</p>
-                    <a href="mailto:contact.swechaenterprises@gmail.com" className="text-primary font-semibold hover:underline break-all">contact@yourswecha.com</a>
+                    <a href="mailto:contact@swechaenterprises.com" className="text-primary font-semibold hover:underline break-all">contact@swechaenterprises.com</a>
                   </div>
                 </div>
               </motion.div>
