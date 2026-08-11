@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <img
-              src="/images/swecha-logo.webp"
+              src="/images/swecha-logo-email.png"
               alt="Swecha Enterprises"
-              className="h-16 w-auto mb-4 bg-white p-2 rounded"
+              className="h-12 w-auto mb-4 bg-white px-3 py-2 rounded-lg shadow-sm"
               loading="lazy"
             />
             <p className="text-sm text-gray-300 leading-relaxed">
