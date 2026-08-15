@@ -100,10 +100,8 @@ const CatalogueDownloadModal = ({ isOpen, onClose }) => {
       });
 
       // Trigger Download
-      // Simulating a file download since we don't have a real PDF file URL yet.
-      // In production, replace `href` with actual PDF URL.
       const link = document.createElement('a');
-      link.href = '#'; // Placeholder for real PDF URL
+      link.href = '/Swecha_Enterprises_Catalogue_2026.pdf';
       link.setAttribute('download', 'Swecha_Enterprises_Catalogue_2026.pdf');
       document.body.appendChild(link);
       link.click();
