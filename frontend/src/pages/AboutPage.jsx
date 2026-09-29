@@ -47,7 +47,7 @@ const AboutPage = () => {
                 <h2 className="text-4xl font-bold text-primary mb-6">Our Journey</h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">Founded in 2023, Swecha Enterprises set out with a clear goal: to be a dependable source of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana's hospitals and clinics.</p>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">Swecha (స్వేచ్ఛ) means freedom — and the name wasn't picked for how it sounds. It came from watching people, often women, who never got the freedom to grow on their own terms. That idea is why this company carries the name it does.</p>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">That focus builds on our founder's nine years in the medical equipment sector. We're the exclusive distributor for Andhra Pradesh and Telangana, backed by Monarc Distribution Network's two decades of sales, distribution, and national service experience.</p>
+                <p className="text-lg text-gray-700 mb-4 leading-relaxed">That focus builds on our founder's nine years in the physiotherapy equipment sector. We're the exclusive distributor for Andhra Pradesh and Telangana, backed by Monarc Distribution Network's two decades of sales, distribution, and national service experience.</p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Today, we supply everything from treatment tables to robotic rehabilitation systems to facilities including AIG Hospitals, Continental Hospitals, and DakshinRehab.
                 </p>

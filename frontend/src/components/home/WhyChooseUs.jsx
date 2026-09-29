@@ -21,7 +21,7 @@ const features = [
   {
     icon: TrendingUp,
     title: 'Industry Expertise',
-    description: "Founded in 2023, backed by our founder's 9 years in the medical equipment sector",
+    description: "Founded in 2023, backed by our founder's 9 years in the physiotherapy equipment sector",
   },
   {
     icon: CheckCircle,
