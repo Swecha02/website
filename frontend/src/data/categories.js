@@ -72,6 +72,8 @@ export const categories = [
     title: 'Hydrotherapy Equipment — Whirlpool Tubs & Aquatic Therapy',
     description: 'Whirlpool tubs, aquatic therapy pools, underwater treadmills and contrast baths for rehabilitation centres in Andhra Pradesh and Telangana.',
     intro: 'Water-based rehabilitation equipment for centres adding aquatic therapy, from single whirlpool units to full aquatic therapy set-ups.',
+    // Owner-confirmed installation (2026-09-29). Only name real, approved sites here.
+    installedAt: 'Vitanova Rehab at Continental Hospitals, Hyderabad',
     items: [
       { name: 'Whirlpool Tubs', desc: 'Upper- and lower-limb whirlpool baths.' },
       { name: 'Aquatic Therapy Pools', desc: 'Pools for water-based exercise and rehabilitation.' },

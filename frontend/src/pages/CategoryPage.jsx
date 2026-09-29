@@ -80,6 +80,11 @@ const CategoryPage = ({ onGetQuoteClick }) => {
           <div className="container mx-auto px-4 max-w-5xl grid md:grid-cols-5 gap-10 items-center">
             <div className={c.hero ? 'md:col-span-3' : 'md:col-span-5'}>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">{c.intro}</p>
+              {c.installedAt && (
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  We&apos;ve supplied {c.name.toLowerCase()} equipment to <strong>{c.installedAt}</strong>.
+                </p>
+              )}
               <p className="text-lg text-gray-700 leading-relaxed">
                 Equipment comes with a 1-year manufacturer warranty, with AMC available. We assess your centre&apos;s need
                 and budget, then give you a written quotation with no obligation.
