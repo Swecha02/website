@@ -21,7 +21,7 @@ const features = [
   {
     icon: TrendingUp,
     title: 'Industry Expertise',
-    description: '9 years of specialized knowledge in medical equipment, since 2017',
+    description: "Founded in 2023, backed by our founder's 9 years in the medical equipment sector",
   },
   {
     icon: CheckCircle,
@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
             Why Choose Swecha Enterprises?
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Nine years as the exclusive distributor for Andhra Pradesh and Telangana
+            The exclusive distributor for Andhra Pradesh and Telangana
           </p>
         </motion.div>
 
