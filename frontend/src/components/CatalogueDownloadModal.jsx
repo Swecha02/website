@@ -24,7 +24,7 @@ const countryCodes = [
   { code: '+62', name: 'Indonesia' },
 ];
 
-const CatalogueDownloadModal = ({ isOpen, onClose }) => {
+const CatalogueDownloadModal = ({ isOpen, onClose, source }) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -32,6 +32,7 @@ const CatalogueDownloadModal = ({ isOpen, onClose }) => {
     email: '',
     countryCode: '+91',
     mobileNumber: '',
+    organization: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -90,7 +91,9 @@ const CatalogueDownloadModal = ({ isOpen, onClose }) => {
         name: formData.name,
         email: formData.email,
         country_code: formData.countryCode,
-        mobile_number: formData.mobileNumber
+        mobile_number: formData.mobileNumber,
+        organization: formData.organization,
+        source
       });
 
       toast({
@@ -115,11 +118,12 @@ const CatalogueDownloadModal = ({ isOpen, onClose }) => {
       });
       
       // 6. Reset and Close
-      setFormData({ 
-        name: '', 
-        email: '', 
-        countryCode: '+91', 
-        mobileNumber: '' 
+      setFormData({
+        name: '',
+        email: '',
+        countryCode: '+91',
+        mobileNumber: '',
+        organization: '',
       });
       onClose();
 
@@ -214,6 +218,22 @@ const CatalogueDownloadModal = ({ isOpen, onClose }) => {
                       <AlertCircle className="w-3 h-3" /> {errors.email}
                     </p>
                   )}
+                </div>
+
+                {/* Organization */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    Organization / Hospital
+                  </label>
+                  <input
+                    type="text"
+                    name="organization"
+                    value={formData.organization}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg outline-none transition-all focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    placeholder="Continental Hospitals"
+                  />
                 </div>
 
                 {/* Phone Number Group */}

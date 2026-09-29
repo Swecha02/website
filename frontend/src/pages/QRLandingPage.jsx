@@ -10,9 +10,12 @@ import { useAnalytics } from '@/hooks/useAnalytics';
 const QRLandingPage = () => {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const { trackPageVisit, trackButtonClick } = useAnalytics();
+  // Print material and QR placements append ?src=<slug> (e.g. ?src=listing-card) so we can
+  // tell which physical placement is actually driving scans.
+  const source = new URLSearchParams(window.location.search).get('src') || null;
 
   useEffect(() => {
-    trackPageVisit('QR Landing Page');
+    trackPageVisit('QR Landing Page', source);
   }, []);
 
   const containerVariants = {
@@ -36,31 +39,31 @@ const QRLandingPage = () => {
   };
 
   const handleDownloadClick = () => {
-    trackButtonClick('View 2026 Premium Catalogue (PDF)');
+    trackButtonClick('View 2026 Premium Catalogue (PDF)', source);
     setIsDownloadModalOpen(true);
   };
 
   const handleWhatsAppClick = () => {
-    trackButtonClick('Book a Free Demo / Get Quote');
+    trackButtonClick('Book a Free Demo / Get Quote', source);
   };
 
   const handleWebsiteClick = () => {
-    trackButtonClick('Visit Official Website');
+    trackButtonClick('Visit Official Website', source);
   };
   
   const handleCallClick = () => {
-    trackButtonClick('Call Us Directly');
+    trackButtonClick('Call Us Directly', source);
   };
 
   const handlePersonalChatClick = () => {
-    trackButtonClick('Chat with Rajesh (Personal)');
+    trackButtonClick('Chat with Rajesh (Personal)', source);
   };
 
   return (
     <>
       <Helmet>
         <title>Connect - Swecha Enterprises</title>
-        <meta name="description" content="Trusted Partner for Physiotherapy & Rehab Equipment in Telangana & Andhra Pradesh. Download catalogue or contact us." />
+        <meta name="description" content="Exclusive distributor of physiotherapy & rehabilitation equipment for Andhra Pradesh & Telangana. One point of contact, start to finish. Download catalogue or contact us." />
         <link rel="canonical" href="https://swechaenterprises.com/connect" />
       </Helmet>
 
@@ -90,17 +93,17 @@ const QRLandingPage = () => {
           <motion.div variants={itemVariants} className="space-y-4 max-w-xs mx-auto">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-primary tracking-tight leading-tight">
-                Empowering Recovery
+                One Point of Contact, Start to Finish
               </h1>
               <p className="text-xl text-secondary font-medium mt-1">
-                Enhancing Life
+                From first bed to full centre.
               </p>
             </div>
-            
+
             <div className="h-1 w-16 bg-gray-200 mx-auto rounded-full"></div>
 
             <p className="text-sm text-gray-500 font-medium leading-relaxed px-2">
-              Trusted Partner for Physiotherapy & Rehab Equipment in Telangana & Andra Pradesh
+              Exclusive distributor of physiotherapy & rehabilitation equipment for Andhra Pradesh & Telangana.
             </p>
           </motion.div>
 
@@ -116,9 +119,9 @@ const QRLandingPage = () => {
               <span>View 2026 Premium Catalogue (PDF)</span>
             </Button>
 
-            <a 
-              href="https://wa.me/919885839555?text=Hi,%20I%20would%20like%20to%20book%20a%20demo%20or%20get%20a%20quote." 
-              target="_blank" 
+            <a
+              href="https://wa.me/919885839555?text=Hi,%20I%20would%20like%20to%20book%20a%20demo%20or%20get%20a%20quote."
+              target="_blank"
               rel="noopener noreferrer"
               className="block w-full"
               onClick={handleWhatsAppClick}
@@ -197,9 +200,10 @@ const QRLandingPage = () => {
         </motion.div>
       </div>
 
-      <CatalogueDownloadModal 
-        isOpen={isDownloadModalOpen} 
-        onClose={() => setIsDownloadModalOpen(false)} 
+      <CatalogueDownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
+        source={source}
       />
     </>
   );

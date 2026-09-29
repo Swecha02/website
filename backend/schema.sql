@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS catalogue_downloads (
     email          TEXT NOT NULL,
     country_code   TEXT,
     mobile_number  TEXT,
+    organization   TEXT,
+    source         TEXT,
     created_at     TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -30,14 +32,22 @@ CREATE TABLE IF NOT EXISTS form_submissions (
 CREATE TABLE IF NOT EXISTS page_visits (
     id          BIGSERIAL PRIMARY KEY,
     page_name   TEXT NOT NULL,
+    source      TEXT,
     visited_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS button_clicks (
     id          BIGSERIAL PRIMARY KEY,
     button_name TEXT NOT NULL,
+    source      TEXT,
     clicked_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- Idempotent for databases created before organization/source existed
+ALTER TABLE catalogue_downloads ADD COLUMN IF NOT EXISTS organization TEXT;
+ALTER TABLE catalogue_downloads ADD COLUMN IF NOT EXISTS source TEXT;
+ALTER TABLE page_visits ADD COLUMN IF NOT EXISTS source TEXT;
+ALTER TABLE button_clicks ADD COLUMN IF NOT EXISTS source TEXT;
 
 -- Indexes for the date-range queries the analytics dashboard runs constantly
 CREATE INDEX IF NOT EXISTS idx_page_visits_visited_at ON page_visits (visited_at);

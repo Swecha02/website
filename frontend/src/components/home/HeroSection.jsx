@@ -97,7 +97,14 @@ const HeroSection = ({ onGetQuoteClick }) => {
           <Button
             size="lg"
             className="bg-primary hover:bg-primary-hover text-white hover:text-primary font-semibold shadow-lg hover:shadow-xl transition-all"
-            onClick={() => window.location.href = 'tel:+919885839555'} // Added phone link to Contact Us button
+            onClick={() => {
+              // Below md, dial directly; desktop browsers have no tel: handler, so open the quote modal instead
+              if (window.innerWidth < 768) {
+                window.location.href = 'tel:+919885839555';
+              } else {
+                onGetQuoteClick('Hero Section Contact Us');
+              }
+            }}
           >
             Contact Us
           </Button>

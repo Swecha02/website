@@ -23,7 +23,7 @@ router.get('/contact', async (req, res) => {
 router.get('/catalogue', async (req, res) => {
   try {
     const { rows } = await pool.query(
-      `SELECT id, name, email, country_code, mobile_number, created_at
+      `SELECT id, name, email, country_code, mobile_number, organization, source, created_at
        FROM catalogue_downloads ORDER BY created_at DESC`
     );
     res.json(rows);

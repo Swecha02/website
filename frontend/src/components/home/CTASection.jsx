@@ -33,10 +33,17 @@ const CTASection = ({ onGetQuoteClick }) => {
               Request a Quote
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary hover:bg-primary-hover text-white hover:text-primary font-semibold shadow-lg hover:shadow-xl transition-all"
-              onClick={() => window.location.href = 'tel:+919885839555'}
+              onClick={() => {
+                // Below md, dial directly; desktop browsers have no tel: handler, so open the quote modal instead
+                if (window.innerWidth < 768) {
+                  window.location.href = 'tel:+919885839555';
+                } else {
+                  onGetQuoteClick('Call Now Request');
+                }
+              }}
             >
               <Phone className="mr-2 w-5 h-5" />
               Call Now

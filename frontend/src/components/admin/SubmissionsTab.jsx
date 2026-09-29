@@ -53,6 +53,8 @@ const FORM_TYPES = {
       { key: 'email', label: 'Email' },
       { key: 'country_code', label: 'Country Code' },
       { key: 'mobile_number', label: 'Mobile' },
+      { key: 'organization', label: 'Organization' },
+      { key: 'source', label: 'Source' },
       { key: 'created_at', label: 'Submitted' },
     ],
     fetch: getCatalogueDownloads,

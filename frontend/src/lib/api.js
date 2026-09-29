@@ -27,17 +27,17 @@ async function request(path, options = {}) {
 
 // ---- Analytics tracking (fire-and-forget, never throws) ----
 
-export function trackPageVisit(pageName) {
+export function trackPageVisit(pageName, source) {
   request('/api/track/page-visit', {
     method: 'POST',
-    body: JSON.stringify({ page_name: pageName }),
+    body: JSON.stringify({ page_name: pageName, source }),
   }).catch((err) => console.warn('Analytics Error:', err));
 }
 
-export function trackButtonClick(buttonName) {
+export function trackButtonClick(buttonName, source) {
   request('/api/track/button-click', {
     method: 'POST',
-    body: JSON.stringify({ button_name: buttonName }),
+    body: JSON.stringify({ button_name: buttonName, source }),
   }).catch((err) => console.warn('Analytics Error:', err));
 }
 

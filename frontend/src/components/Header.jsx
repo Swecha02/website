@@ -67,12 +67,21 @@ const Header = ({ onGetQuoteClick }) => {
             </Button>
           </div>
 
-          <button
-            className="md:hidden text-primary"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <a
+              href="tel:+919885839555"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary text-white"
+              aria-label="Call us"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+            <button
+              className="text-primary"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (

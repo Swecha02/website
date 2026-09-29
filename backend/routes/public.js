@@ -34,9 +34,9 @@ const trackLimiter = rateLimit({
 // ---- Analytics tracking (fire-and-forget from the frontend) ----
 
 router.post('/track/page-visit', trackLimiter, async (req, res) => {
-  const { page_name } = req.body;
+  const { page_name, source } = req.body;
   try {
-    await pool.query('INSERT INTO page_visits (page_name) VALUES ($1)', [page_name || 'Unknown']);
+    await pool.query('INSERT INTO page_visits (page_name, source) VALUES ($1, $2)', [page_name || 'Unknown', source || null]);
   } catch (err) {
     console.warn('page-visit tracking failed:', err.message);
   }
@@ -44,9 +44,9 @@ router.post('/track/page-visit', trackLimiter, async (req, res) => {
 });
 
 router.post('/track/button-click', trackLimiter, async (req, res) => {
-  const { button_name } = req.body;
+  const { button_name, source } = req.body;
   try {
-    await pool.query('INSERT INTO button_clicks (button_name) VALUES ($1)', [button_name || 'Unknown']);
+    await pool.query('INSERT INTO button_clicks (button_name, source) VALUES ($1, $2)', [button_name || 'Unknown', source || null]);
   } catch (err) {
     console.warn('button-click tracking failed:', err.message);
   }
@@ -114,22 +114,22 @@ router.post('/quote', formLimiter, async (req, res) => {
 // ---- Catalogue download modal (CatalogueDownloadModal.jsx) ----
 
 router.post('/catalogue-download', formLimiter, async (req, res) => {
-  const { name, email, country_code, mobile_number } = req.body;
+  const { name, email, country_code, mobile_number, organization, source } = req.body;
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required' });
   }
 
   try {
     await pool.query(
-      `INSERT INTO catalogue_downloads (name, email, country_code, mobile_number)
-       VALUES ($1, $2, $3, $4)`,
-      [name, email, country_code || null, mobile_number || null]
+      `INSERT INTO catalogue_downloads (name, email, country_code, mobile_number, organization, source)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [name, email, country_code || null, mobile_number || null, organization || null, source || null]
     );
     await pool.query(`INSERT INTO form_submissions (form_name) VALUES ('catalogue_download')`);
 
     sendNotificationEmail({
       subject: `New catalogue download request from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${country_code || ''} ${mobile_number || '-'}`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${country_code || ''} ${mobile_number || '-'}\nOrganization: ${organization || '-'}\nSource: ${source || '-'}`,
     });
 
     res.status(201).json({ ok: true });
