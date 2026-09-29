@@ -16,7 +16,7 @@ const Footer = () => {
               loading="lazy"
             />
             <p className="text-sm text-gray-300 leading-relaxed">
-              Exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana since 2017. One point of contact, start to finish.
+              Exclusive distributor of physiotherapy and rehabilitation equipment for <Link to="/andhra-pradesh" className="text-white hover:underline decoration-accent decoration-2 underline-offset-4">Andhra Pradesh</Link> and <Link to="/telangana" className="text-white hover:underline decoration-accent decoration-2 underline-offset-4">Telangana</Link>. One point of contact, start to finish.
             </p>
           </div>
 
@@ -27,8 +27,6 @@ const Footer = () => {
               <li><Link to="/about" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">About Us</Link></li>
               <li><Link to="/products" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Products</Link></li>
               <li><Link to="/contact" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Contact</Link></li>
-              <li><Link to="/andhra-pradesh" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Andhra Pradesh</Link></li>
-              <li><Link to="/telangana" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Telangana</Link></li>
             </ul>
           </div>
 
