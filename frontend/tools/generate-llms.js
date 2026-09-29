@@ -2,6 +2,8 @@
 
 import fs from 'fs';
 import path from 'path';
+import { categories } from '../src/data/categories.js';
+import { states } from '../src/data/states.js';
 
 const CLEAN_CONTENT_REGEX = {
   comments: /\/\*[\s\S]*?\*\/|(?<!:)\/\/.*$/gm,
@@ -144,6 +146,10 @@ const PUBLIC_ROUTES = [
   { url: '/contact', priority: '0.8' },
   { url: '/connect', priority: '0.5' },
   { url: '/privacy-policy', priority: '0.3' },
+  // Data-driven pages: read from the same files the app renders from, so new
+  // states/categories land in the sitemap automatically.
+  ...Object.keys(states).map((slug) => ({ url: `/${slug}`, priority: '0.9' })),
+  ...categories.map((c) => ({ url: `/products/${c.slug}`, priority: '0.8' })),
 ];
 
 function generateSitemapXml() {
