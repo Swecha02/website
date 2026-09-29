@@ -2,50 +2,9 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { categories as shared } from '@/data/categories';
 
-const categories = [
-  {
-    image: '/images/category-therapeutic-modalities.webp',
-    title: 'Therapeutic Modalities',
-    description: 'Ultrasound, TENS, laser therapy, and electrotherapy',
-  },
-  {
-    image: '/images/category-exercise-therapy.webp',
-    title: 'Exercise Therapy',
-    description: 'Resistance training and functional movement equipment',
-  },
-  {
-    image: '/images/category-treatment-tables.webp',
-    title: 'Treatment Tables',
-    description: 'Adjustable tables for optimal patient positioning',
-  },
-  {
-    image: '/images/category-hydrotherapy.webp',
-    title: 'Hydrotherapy',
-    description: 'Whirlpool tubs and aquatic therapy systems',
-  },
-  {
-    image: '/images/category-interactive-fitness.webp',
-    title: 'Interactive Fitness Equipment',
-    description: 'Smart treadmills, bikes, and digital training systems',
-  },
-  {
-    image: '/images/category-kinesiotherapy.webp',
-    title: 'Kinesiotherapy',
-    description: 'Movement therapy and rehabilitation tools',
-  },
-  {
-    image: '/images/category-contrast-therapy.webp',
-    title: 'Contrast Therapy (Hot & Cold)',
-    description: 'Hot packs, cold therapy, and contrast bath systems',
-  },
-  {
-    image: '/images/category-robotic-systems.webp',
-    title: 'Advanced Robotic Systems',
-    description: 'Robotic-assisted therapy and rehabilitation technology',
-    isLarge: true,
-  },
-];
+const categories = shared.map((c) => ({ ...c, title: c.name, description: c.summary }));
 
 const ProductCategories = () => {
   const ref = useRef(null);
@@ -113,7 +72,7 @@ const ProductCategories = () => {
               >
                 <div 
                   className="bg-white rounded-2xl shadow-lg overflow-hidden h-full cursor-pointer hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 transform hover:-translate-y-2"
-                  onClick={() => navigate('/products')}
+                  onClick={() => navigate(`/products/${category.slug}`)}
                 >
                   <div className="h-48 bg-white p-8 flex items-center justify-center relative overflow-hidden border-b border-gray-100">
                     <motion.div

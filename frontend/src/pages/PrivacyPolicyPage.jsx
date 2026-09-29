@@ -2,11 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 
-const lastUpdated = new Date().toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const lastUpdated = 'September 29, 2026';
 
 const PrivacyPolicyPage = () => {
   return (
@@ -69,7 +65,7 @@ const PrivacyPolicyPage = () => {
                 <li>Otherwise correspond with us</li>
               </ul>
               <p className="text-gray-700 leading-relaxed mb-4">
-                We do <strong>not</strong> knowingly collect sensitive personal data (health records, financial information, government ID numbers) through this Site. We do not currently use analytics, advertising, or tracking cookies; if this changes, we will update this Policy and request consent where required.
+                We do <strong>not</strong> knowingly collect sensitive personal data (health records, financial information, government ID numbers) through this Site. With your consent, we use Google Analytics to understand how visitors use the Site (see Section 9, Cookies).
               </p>
 
               <h2 className="text-2xl font-bold text-primary mt-12 mb-4">3. How We Use Your Information</h2>
@@ -131,7 +127,7 @@ const PrivacyPolicyPage = () => {
 
               <h2 className="text-2xl font-bold text-primary mt-12 mb-4">9. Cookies</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                This Site currently does not use tracking or advertising cookies. It may use strictly necessary technical cookies required for basic site functionality. If we introduce analytics or marketing cookies in the future, we will display a cookie consent banner and update this section to describe what is collected and how you can manage your preferences.
+                When you first visit, a notice at the bottom of the page asks whether you accept analytics cookies. If you click <strong>Accept</strong>, we load Google Analytics, which sets cookies (such as <code>_ga</code>) to measure visits, pages viewed and approximate location; this data is processed by Google. If you click <strong>Decline</strong>, Google Analytics is not loaded. Your choice is stored in your browser for 6 months, and you can change it at any time using the <strong>Cookie settings</strong> link in the footer. We also count page visits on our own server without cookies or personal identifiers, and the Site may use strictly necessary technical storage required for basic functionality. We do not use advertising cookies.
               </p>
 
               <h2 className="text-2xl font-bold text-primary mt-12 mb-4">10. Children's Privacy</h2>

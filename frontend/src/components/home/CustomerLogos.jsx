@@ -5,7 +5,7 @@ const CustomerLogos = () => {
   const logos = [
     { 
       src: '/images/logo-sandhya-age-care.webp', 
-      alt: 'Sandhya Age Care Foundation Logo',
+      alt: 'Sneha Sandhya Age Care Foundation Logo',
     },
     { 
       src: '/images/logo-aig-hospitals.webp', 

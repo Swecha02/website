@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Linkedin } from 'lucide-react';
+import { resetConsent } from '@/components/CookieConsent';
 
 const Footer = () => {
   return (
@@ -26,6 +27,8 @@ const Footer = () => {
               <li><Link to="/about" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">About Us</Link></li>
               <li><Link to="/products" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Products</Link></li>
               <li><Link to="/contact" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Contact</Link></li>
+              <li><Link to="/andhra-pradesh" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Andhra Pradesh</Link></li>
+              <li><Link to="/telangana" className="text-sm text-gray-300 hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Telangana</Link></li>
             </ul>
           </div>
 
@@ -66,6 +69,8 @@ const Footer = () => {
           </p>
           <p className="text-xs text-gray-400 mt-2">
             <Link to="/privacy-policy" className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Privacy Policy</Link>
+            <span className="mx-2">·</span>
+            <button type="button" onClick={resetConsent} className="hover:text-white hover:underline decoration-accent decoration-2 underline-offset-4 transition-all">Cookie settings</button>
           </p>
         </div>
       </div>

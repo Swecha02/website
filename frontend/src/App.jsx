@@ -7,6 +7,9 @@ import ProductsPage from '@/pages/ProductsPage';
 import ContactPage from '@/pages/ContactPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import QRLandingPage from '@/pages/QRLandingPage';
+import StatePage from '@/pages/StatePage';
+import CategoryPage from '@/pages/CategoryPage';
+import CookieConsent from '@/components/CookieConsent';
 import ProtectedAdminRoute from '@/components/ProtectedAdminRoute';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -109,8 +112,11 @@ function App() {
               <Route path="/" element={<HomePage onGetQuoteClick={openModal} />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/products" element={<ProductsPage onGetQuoteClick={openModal} />} />
+              <Route path="/products/:slug" element={<CategoryPage onGetQuoteClick={openModal} />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/andhra-pradesh" element={<StatePage key="ap" slug="andhra-pradesh" onGetQuoteClick={openModal} />} />
+              <Route path="/telangana" element={<StatePage key="ts" slug="telangana" onGetQuoteClick={openModal} />} />
               {/* Catch all for public routes to redirect to home if not found, 
                   or you could add a NotFoundPage here */}
               <Route path="*" element={<Navigate to="/" replace />} />
@@ -124,6 +130,7 @@ function App() {
         onClose={closeModal} 
         subject={quoteSubject} 
       />
+      <CookieConsent />
     </div>
   );
 }

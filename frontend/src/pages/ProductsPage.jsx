@@ -1,60 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { categories as products } from '@/data/categories';
 
-const products = [
-  {
-    category: 'Therapeutic Modalities',
-    image: '/images/category-therapeutic-modalities.webp',
-    items: [
-      'Combination therapy devices (ultrasound & electrotherapy)',
-      'Shockwave therapy',
-      'Low power laser devices',
-      'High-power laser devices',
-      'Tecar therapy',
-      'Lymphedema Pump',
-      'TENS Units',
-      'Diathermy'
-    ],
-  },
-  {
-    category: 'Exercise Therapy',
-    image: '/images/category-exercise-therapy.webp',
-    items: ['Resistance Training Equipment', 'Functional Movement Systems', 'Therapeutic Exercise Bikes', 'Pulleys & Weights'],
-  },
-  {
-    category: 'Treatment Tables',
-    image: '/images/category-treatment-tables.webp',
-    items: ['Electric Hi-Lo Tables', 'Manual Therapy Tables', 'Bobath Table', 'Examination Couches', 'Traction Tables', 'Tilt Tables'],
-  },
-  {
-    category: 'Hydrotherapy',
-    image: '/images/category-hydrotherapy.webp',
-    items: ['Whirlpool Tubs', 'Aquatic Therapy Pools', 'Underwater Treadmills', 'Hydrotherapy Jets', 'Contrast Baths'],
-  },
-  {
-    category: 'Interactive Fitness Equipment',
-    image: '/images/category-interactive-fitness.webp',
-    items: ['Smart Treadmills', 'Virtual Reality Rehab Systems', 'Gamified Exercise Platforms', 'Digital Training Bikes'],
-  },
-  {
-    category: 'Kinesiotherapy',
-    image: '/images/category-kinesiotherapy.webp',
-    items: ['CPM Machines', 'Suspension Therapy Systems', 'Gait Trainers', 'Balance Boards', 'Therapy Ladders'],
-  },
-  {
-    category: 'Contrast Therapy (Hot & Cold)',
-    image: '/images/category-contrast-therapy.webp',
-    items: ['Hot Pack Units', 'Cold Therapy Systems', 'Paraffin Wax Baths', 'Cryotherapy Devices', 'Contrast Bath Units'],
-  },
-  {
-    category: 'Advanced Robotic Systems',
-    image: '/images/category-robotic-systems.webp',
-    isLarge: true, // New property to identify the robotic systems icon
-    items: ['Robotic Exoskeletons', 'Robot-Assisted Gait Trainers', 'Upper Limb Robotic Devices', 'Sensor-Based Feedback Systems'],
-  },
-];
+
 
 const ProductsPage = ({ onGetQuoteClick }) => {
 
@@ -104,7 +55,7 @@ const ProductsPage = ({ onGetQuoteClick }) => {
                     <div className={`flex items-center justify-center ${product.isLarge ? 'w-36 h-36' : 'w-28 h-28'}`}>
                       <img
                         src={product.image}
-                        alt={product.category}
+                        alt={product.name}
                         className="w-full h-full object-contain"
                         loading="lazy"
                       />
@@ -113,21 +64,24 @@ const ProductsPage = ({ onGetQuoteClick }) => {
                   
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="text-2xl font-bold text-primary mb-4">
-                      {product.category}
+                      <Link to={`/products/${product.slug}`} className="hover:underline">{product.name}</Link>
                     </h3>
                     
                     <ul className="space-y-2 mb-6">
                       {product.items.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-gray-700">
                           <span className="text-secondary mt-1">•</span>
-                          <span>{item}</span>
+                          <span>{item.name}</span>
                         </li>
                       ))}
                     </ul>
 
+                    <Link to={`/products/${product.slug}`} className="text-primary font-semibold hover:underline mt-auto mb-3">
+                      View details &rarr;
+                    </Link>
                     <Button 
-                      className="w-full mt-auto bg-secondary hover:bg-secondary-hover text-white hover:text-primary"
-                      onClick={() => handleInquiry(product.category)}
+                      className="w-full bg-secondary hover:bg-secondary-hover text-white hover:text-primary"
+                      onClick={() => handleInquiry(product.name)}
                     >
                       Request Information
                     </Button>
