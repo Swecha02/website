@@ -102,7 +102,7 @@ server {
     index index.html;
 
     location / {
-        try_files $uri /index.html;
+        try_files $uri $uri.html /index.html;  # $uri.html = per-route link-preview heads (tools/prerender-heads.js)
 
         # Security headers - Helmet (backend/server.js) only covers /api/ JSON
         # responses, so the static site needs its own copy or ships with none.
