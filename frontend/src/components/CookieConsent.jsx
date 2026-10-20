@@ -21,7 +21,7 @@ export const resetConsent = () => {
 };
 
 const CookieConsent = () => {
-  const [open, setOpen] = useState(() => !hasValidChoice());
+  const [open, setOpen] = useState(() => typeof window !== 'undefined' && !hasValidChoice());
   if (!open) return null;
 
   const choose = (choice) => {

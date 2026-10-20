@@ -5,132 +5,6 @@ import path from 'path';
 import { categories } from '../src/data/categories.js';
 import { states } from '../src/data/states.js';
 
-const CLEAN_CONTENT_REGEX = {
-  comments: /\/\*[\s\S]*?\*\/|(?<!:)\/\/.*$/gm,
-  templateLiterals: /`[\s\S]*?`/g,
-  strings: /'[^']*'|"[^"]*"/g,
-  jsxExpressions: /\{.*?\}/g,
-  htmlEntities: {
-    quot: /&quot;/g,
-    amp: /&amp;/g,
-    lt: /&lt;/g,
-    gt: /&gt;/g,
-    apos: /&apos;/g
-  }
-};
-
-const EXTRACTION_REGEX = {
-  route: /<Route\s+[^>]*>/g,
-  path: /path=["']([^"']+)["']/,
-  element: /element=\{<(\w+)[^}]*\/?\s*>\}/,
-  helmet: /<Helmet[^>]*?>([\s\S]*?)<\/Helmet>/i,
-  helmetTest: /<Helmet[\s\S]*?<\/Helmet>/i,
-  title: /<title[^>]*?>\s*(.*?)\s*<\/title>/i,
-  description: /<meta\s+name=["']description["']\s+content=["'](.*?)["']/i
-};
-
-function cleanContent(content) {
-  return content
-    .replace(CLEAN_CONTENT_REGEX.comments, '')
-    .replace(CLEAN_CONTENT_REGEX.templateLiterals, '""')
-    .replace(CLEAN_CONTENT_REGEX.strings, '""');
-}
-
-function cleanText(text) {
-  if (!text) return text;
-  
-  return text
-    .replace(CLEAN_CONTENT_REGEX.jsxExpressions, '')
-    .replace(CLEAN_CONTENT_REGEX.htmlEntities.quot, '"')
-    .replace(CLEAN_CONTENT_REGEX.htmlEntities.amp, '&')
-    .replace(CLEAN_CONTENT_REGEX.htmlEntities.lt, '<')
-    .replace(CLEAN_CONTENT_REGEX.htmlEntities.gt, '>')
-    .replace(CLEAN_CONTENT_REGEX.htmlEntities.apos, "'")
-    .trim();
-}
-
-function extractRoutes(appJsxPath) {
-  if (!fs.existsSync(appJsxPath)) return new Map();
-
-  try {
-    const content = fs.readFileSync(appJsxPath, 'utf8');
-    const routes = new Map();
-    const routeMatches = [...content.matchAll(EXTRACTION_REGEX.route)];
-    
-    for (const match of routeMatches) {
-      const routeTag = match[0];
-      const pathMatch = routeTag.match(EXTRACTION_REGEX.path);
-      const elementMatch = routeTag.match(EXTRACTION_REGEX.element);
-      const isIndex = routeTag.includes('index');
-      
-      if (elementMatch) {
-        const componentName = elementMatch[1];
-        let routePath;
-        
-        if (isIndex) {
-          routePath = '/';
-        } else if (pathMatch) {
-          routePath = pathMatch[1].startsWith('/') ? pathMatch[1] : `/${pathMatch[1]}`;
-        }
-        
-        routes.set(componentName, routePath);
-      }
-    }
-
-    return routes;
-  } catch (error) {
-    return new Map();
-  }
-}
-
-function findReactFiles(dir) {
-  return fs.readdirSync(dir).map(item => path.join(dir, item));
-}
-
-function extractHelmetData(content, filePath, routes) {
-  const cleanedContent = cleanContent(content);
-  
-  if (!EXTRACTION_REGEX.helmetTest.test(cleanedContent)) {
-    return null;
-  }
-  
-  const helmetMatch = content.match(EXTRACTION_REGEX.helmet);
-  if (!helmetMatch) return null;
-  
-  const helmetContent = helmetMatch[1];
-  const titleMatch = helmetContent.match(EXTRACTION_REGEX.title);
-  const descMatch = helmetContent.match(EXTRACTION_REGEX.description);
-  
-  const title = cleanText(titleMatch?.[1]);
-  const description = cleanText(descMatch?.[1]);
-  
-  const fileName = path.basename(filePath, path.extname(filePath));
-  const hasRoutes = (routes.size ?? routes.length) > 0;
-  const url = hasRoutes && routes.has(fileName)
-    ? routes.get(fileName)
-    : generateFallbackUrl(fileName);
-  
-  return {
-    url,
-    title: title || 'Untitled Page',
-    description: description || 'No description available'
-  };
-}
-
-function generateFallbackUrl(fileName) {
-  const cleanName = fileName.replace(/Page$/, '').toLowerCase();
-  return cleanName === 'app' ? '/' : `/${cleanName}`;
-}
-
-function generateLlmsTxt(pages) {
-  const sortedPages = pages.sort((a, b) => a.title.localeCompare(b.title));
-  const pageEntries = sortedPages.map(page =>
-    `- [${page.title}](${page.url}): ${page.description}`
-  ).join('\n');
-
-  return `## Pages\n${pageEntries}`;
-}
-
 const SITE_ORIGIN = 'https://swechaenterprises.com';
 
 // Hand-maintained: matches the public <Route> paths in src/App.jsx. Not derived
@@ -152,6 +26,34 @@ const PUBLIC_ROUTES = [
   ...categories.map((c) => ({ url: `/products/${c.slug}`, priority: '0.8' })),
 ];
 
+// llms.txt: plain-language summary for AI assistants (llmstxt.org). Facts only —
+// every line here may be repeated to a customer, so keep it in step with the site.
+function generateLlmsTxt() {
+  const link = (url, title, desc) => `- [${title}](${SITE_ORIGIN}${url}): ${desc}`;
+  return `# Swecha Enterprises
+
+> Exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana, India — the regional distributor of the Monarc Distribution Network portfolio. Headquartered in Hyderabad, founded in 2023. Supplies hospitals, rehabilitation centres and physiotherapy clinics. One point of contact, start to finish.
+
+## Contact
+- Phone: +91 98858 39555 (Mon–Sat, 9am–7pm)
+- Email: contact@swechaenterprises.com
+- Registered office: 11-3-664/238/A/29, Sajeevapuram, Parsigutta, Hyderabad, Telangana 500061, India
+- Quotes: ${SITE_ORIGIN}/contact
+
+## Where we supply
+${Object.entries(states).map(([slug, s]) => link(`/${slug}`, s.name, `${s.cities.join(', ')}. Customers include ${s.customers}.`)).join('\n')}
+
+## Equipment categories
+${categories.map((c) => link(`/products/${c.slug}`, c.name, `${c.items.map((i) => i.name).join(', ')}.`)).join('\n')}
+
+## Pages
+${link('/', 'Home', 'Overview of Swecha Enterprises and its product categories.')}
+${link('/about', 'About', 'Company background, founded 2023 in Hyderabad.')}
+${link('/products', 'Products', 'Full equipment range by category.')}
+${link('/contact', 'Contact', 'Phone, email, office address and quote request form.')}
+`;
+}
+
 function generateSitemapXml() {
   const today = new Date().toISOString().slice(0, 10);
   const urlEntries = PUBLIC_ROUTES
@@ -163,55 +65,9 @@ function generateSitemapXml() {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`;
 }
 
-function ensureDirectoryExists(dirPath) {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
-}
-
-function processPageFile(filePath, routes) {
-  try {
-    const content = fs.readFileSync(filePath, 'utf8');
-    return extractHelmetData(content, filePath, routes);
-  } catch (error) {
-    console.error(`❌ Error processing ${filePath}:`, error.message);
-    return null;
-  }
-}
-
 function main() {
-  const pagesDir = path.join(process.cwd(), 'src', 'pages');
-  const appJsxPath = path.join(process.cwd(), 'src', 'App.jsx');
-
-  let pages = [];
-  
-  if (!fs.existsSync(pagesDir)) {
-    pages.push(processPageFile(appJsxPath, []))
-    pages = pages.filter(Boolean);
-  } else {
-    const routes = extractRoutes(appJsxPath);
-    const reactFiles = findReactFiles(pagesDir);
-
-    pages = reactFiles
-      .map(filePath => processPageFile(filePath, routes))
-      .filter(Boolean);
-  }
-
-  if (pages.length === 0) {
-    console.error('❌ No pages with Helmet components found!');
-    process.exit(1);
-  }
-
-
-  const llmsTxtContent = generateLlmsTxt(pages);
-  const outputPath = path.join(process.cwd(), 'public', 'llms.txt');
-
-  ensureDirectoryExists(path.dirname(outputPath));
-  fs.writeFileSync(outputPath, llmsTxtContent, 'utf8');
-
-  const sitemapContent = generateSitemapXml();
-  const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
-  fs.writeFileSync(sitemapPath, sitemapContent, 'utf8');
+  fs.writeFileSync(path.join(process.cwd(), 'public', 'llms.txt'), generateLlmsTxt(), 'utf8');
+  fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), generateSitemapXml(), 'utf8');
 }
 
 const isMainModule = import.meta.url === `file://${process.argv[1]}`;

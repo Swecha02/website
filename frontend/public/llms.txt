@@ -1,11 +1,29 @@
+# Swecha Enterprises
+
+> Exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana, India — the regional distributor of the Monarc Distribution Network portfolio. Headquartered in Hyderabad, founded in 2023. Supplies hospitals, rehabilitation centres and physiotherapy clinics. One point of contact, start to finish.
+
+## Contact
+- Phone: +91 98858 39555 (Mon–Sat, 9am–7pm)
+- Email: contact@swechaenterprises.com
+- Registered office: 11-3-664/238/A/29, Sajeevapuram, Parsigutta, Hyderabad, Telangana 500061, India
+- Quotes: https://swechaenterprises.com/contact
+
+## Where we supply
+- [Andhra Pradesh](https://swechaenterprises.com/andhra-pradesh): Visakhapatnam, Vijayawada, Guntur, Nellore, Tirupati, Kakinada, Rajahmundry, Kurnool, Anantapur, Kadapa, Eluru, Ongole. Customers include Sneha Sandhya Age Care Foundation.
+- [Telangana](https://swechaenterprises.com/telangana): Hyderabad, Secunderabad, Warangal, Hanumakonda, Karimnagar, Nizamabad, Khammam, Nalgonda, Mahabubnagar, Siddipet, Adilabad, Suryapet. Customers include AIG Hospitals, Continental Hospitals and the Mallikamba Institute in Hanumakonda.
+
+## Equipment categories
+- [Therapeutic Modalities](https://swechaenterprises.com/products/therapeutic-modalities): Combination therapy devices (ultrasound & electrotherapy), Shockwave therapy, High-power laser devices, Low power laser devices, Tecar therapy, Magnetic therapy, Diathermy, TENS Units, Lymphedema Pump.
+- [Exercise Therapy](https://swechaenterprises.com/products/exercise-therapy): Parallel bars, Staircase climbers, Quadriceps benches, Active/passive cycles, Resistance Training Equipment, Functional Movement Systems, Therapeutic Exercise Bikes, Pulleys & Weights.
+- [Treatment Tables](https://swechaenterprises.com/products/treatment-tables): Electric Hi-Lo Tables, 3D cervical & lumbar decompression tables, Bobath Table, Tilt Tables, Manual Therapy Tables, Traction Tables, Examination Couches.
+- [Hydrotherapy](https://swechaenterprises.com/products/hydrotherapy): Whirlpool Tubs, Aquatic Therapy Pools, Underwater Treadmills, Hydrotherapy Jets, Contrast Baths.
+- [Interactive Fitness Equipment](https://swechaenterprises.com/products/interactive-fitness): Gamified Exercise Platforms, Virtual Reality Rehab Systems, Smart Treadmills, Digital Training Bikes.
+- [Kinesiotherapy](https://swechaenterprises.com/products/kinesiotherapy): Patient lifters & hoists, Sit-to-stand & transfer aids, Walkers, Suspension Therapy Systems, CPM Machines, Hand rehabilitation devices, Balance assessment & training, Gait Trainers, Therapy Ladders.
+- [Contrast Therapy (Hot & Cold)](https://swechaenterprises.com/products/contrast-therapy): Cryo-compression, Contrast Bath Units, Hot Pack Units, Paraffin Wax Baths, Cold Therapy Systems, Cryotherapy Devices.
+- [Advanced Robotic Systems](https://swechaenterprises.com/products/robotic-rehabilitation): Robot-Assisted Gait Trainers, Robotic Exoskeletons, Upper Limb Robotic Devices, Sensor-Based Feedback Systems.
+
 ## Pages
-- [About Us - Swecha Enterprises | Physiotherapy & Rehab Equipment Distributor](/about): Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana, in partnership with Monarc Distribution Network.
-- [Admin Login - Swecha Enterprises](/adminlogin): No description available
-- [Connect - Swecha Enterprises](/qrlanding): Exclusive distributor of physiotherapy & rehabilitation equipment for Andhra Pradesh & Telangana. One point of contact, start to finish. Download catalogue or contact us.
-- [Contact Us - Swecha Enterprises | Get a Quote](/contact): Contact Swecha Enterprises for physiotherapy equipment quotes, service inquiries, or general questions. We are here to help with all your rehabilitation needs.
-- [Dashboard - Swecha Admin](/admindashboard): No description available
-- [Privacy Policy - Swecha Enterprises](/privacypolicy): Swecha Enterprises
-- [Products - Swecha Enterprises | Physiotherapy Equipment Catalog](/products): Browse our comprehensive range of physiotherapy and rehabilitation equipment including exercise machines, treatment tables, therapeutic modalities, and more.
-- [Swecha Enterprises - Leading Physiotherapy & Rehabilitation Equipment Distributor](/home): Swecha Enterprises is the exclusive distributor of physiotherapy and rehabilitation equipment for Andhra Pradesh and Telangana. One point of contact, start to finish. Get a quote for your facility.
-- [Untitled Page](/category): No description available
-- [Untitled Page](/state): No description available
+- [Home](https://swechaenterprises.com/): Overview of Swecha Enterprises and its product categories.
+- [About](https://swechaenterprises.com/about): Company background, founded 2023 in Hyderabad.
+- [Products](https://swechaenterprises.com/products): Full equipment range by category.
+- [Contact](https://swechaenterprises.com/contact): Phone, email, office address and quote request form.
