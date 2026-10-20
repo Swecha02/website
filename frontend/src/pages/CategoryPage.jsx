@@ -87,7 +87,8 @@ const CategoryPage = ({ onGetQuoteClick }) => {
               )}
               <p className="text-lg text-gray-700 leading-relaxed">
                 Equipment comes with a 1-year manufacturer warranty, with AMC available. We assess your centre&apos;s need
-                and budget, then give you a written quotation with no obligation.
+                and budget, then give you a written quotation with no obligation.{' '}
+                <Link to="/faq" className="text-secondary font-semibold hover:underline">Demos, delivery times and service: see our FAQ</Link>.
               </p>
             </div>
             {c.hero && (

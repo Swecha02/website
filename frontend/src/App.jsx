@@ -9,6 +9,7 @@ import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import QRLandingPage from '@/pages/QRLandingPage';
 import StatePage from '@/pages/StatePage';
 import CategoryPage from '@/pages/CategoryPage';
+import FAQPage from '@/pages/FAQPage';
 import CookieConsent from '@/components/CookieConsent';
 import ProtectedAdminRoute from '@/components/ProtectedAdminRoute';
 import Header from '@/components/Header';
@@ -114,6 +115,7 @@ function App() {
               <Route path="/products" element={<ProductsPage onGetQuoteClick={openModal} />} />
               <Route path="/products/:slug" element={<CategoryPage onGetQuoteClick={openModal} />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/faq" element={<FAQPage onGetQuoteClick={openModal} />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/andhra-pradesh" element={<StatePage key="ap" slug="andhra-pradesh" onGetQuoteClick={openModal} />} />
               <Route path="/telangana" element={<StatePage key="ts" slug="telangana" onGetQuoteClick={openModal} />} />

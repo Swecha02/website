@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { categories } from '../src/data/categories.js';
 import { states } from '../src/data/states.js';
+import { allFaqs } from '../src/data/faqs.js';
 
 const SITE_ORIGIN = 'https://swechaenterprises.com';
 
@@ -18,6 +19,7 @@ const PUBLIC_ROUTES = [
   { url: '/about', priority: '0.8' },
   { url: '/products', priority: '0.8' },
   { url: '/contact', priority: '0.8' },
+  { url: '/faq', priority: '0.8' },
   { url: '/connect', priority: '0.5' },
   { url: '/privacy-policy', priority: '0.3' },
   // Data-driven pages: read from the same files the app renders from, so new
@@ -46,11 +48,15 @@ ${Object.entries(states).map(([slug, s]) => link(`/${slug}`, s.name, `${s.cities
 ## Equipment categories
 ${categories.map((c) => link(`/products/${c.slug}`, c.name, `${c.items.map((i) => i.name).join(', ')}.`)).join('\n')}
 
+## Frequently asked questions
+${allFaqs.map((f) => `- ${f.q} ${f.a}`).join('\n')}
+
 ## Pages
 ${link('/', 'Home', 'Overview of Swecha Enterprises and its product categories.')}
 ${link('/about', 'About', 'Company background, founded 2023 in Hyderabad.')}
 ${link('/products', 'Products', 'Full equipment range by category.')}
 ${link('/contact', 'Contact', 'Phone, email, office address and quote request form.')}
+${link('/faq', 'FAQ', 'Buying, costs, demos, delivery times, warranty and service response.')}
 `;
 }
 

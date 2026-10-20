@@ -22,6 +22,7 @@ const staticPages = {
   '/about': 'AboutPage',
   '/products': 'ProductsPage',
   '/contact': 'ContactPage',
+  '/faq': 'FAQPage',
   '/privacy-policy': 'PrivacyPolicyPage',
   '/connect': 'QRLandingPage',
 };
