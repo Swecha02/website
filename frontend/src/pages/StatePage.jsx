@@ -20,7 +20,7 @@ const StatePage = ({ slug, onGetQuoteClick }) => {
     name: `Physiotherapy & rehabilitation equipment supply in ${s.name}`,
     serviceType: 'Physiotherapy and rehabilitation equipment distribution',
     url,
-    provider: { '@type': 'Organization', name: 'Swecha Enterprises', url: SITE, telephone: '+91-9885839555' },
+    provider: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Swecha Enterprises', url: SITE, telephone: '+91-9885839555' },
     areaServed: [{ '@type': 'State', name: s.name }, ...s.cities.map((c) => ({ '@type': 'City', name: c }))],
   };
 

@@ -38,38 +38,23 @@ function fromHelmet(file) {
   return { title: decode(title.trim()), description: decode(description) };
 }
 
-// Page-level schema.org data; links to the Organization block in index.html by @id.
-const ORG = { '@id': `${SITE}/#organization` };
-const AREAS = Object.values(states).map((s) => ({ '@type': 'State', name: s.name }));
-const service = (name, url, areaServed) => ({ '@context': 'https://schema.org', '@type': 'Service', name, url, provider: ORG, areaServed });
-const crumbs = (...items) => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })),
-});
-
 const routes = [
   ...Object.entries(staticPages).map(([route, file]) => ({ route, ...fromHelmet(file) })),
-  ...Object.entries(states).map(([slug, s]) => ({
-    route: `/${slug}`, title: s.title, description: s.description,
-    jsonld: [service(`Physiotherapy & rehabilitation equipment supply in ${s.name}`, `${SITE}/${slug}`, { '@type': 'State', name: s.name })],
-  })),
+  ...Object.entries(states).map(([slug, s]) => ({ route: `/${slug}`, title: s.title, description: s.description })),
   ...categories.map((c) => ({
     route: `/products/${c.slug}`,
     title: `${c.title} | Swecha Enterprises`,
     description: c.description,
     // Link previews need JPG (LinkedIn/WhatsApp are unreliable with webp).
     image: c.hero && `${SITE}${c.hero.replace('/images/', '/images/og/').replace('.webp', '.jpg')}`,
-    jsonld: [
-      service(c.name, `${SITE}/products/${c.slug}`, AREAS),
-      crumbs(['Home', `${SITE}/`], ['Products', `${SITE}/products`], [c.name, `${SITE}/products/${c.slug}`]),
-    ],
   })),
 ];
 
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 
-function renderPage({ route, title, description, image, jsonld = [] }) {
+function renderPage({ route, title, description, image }) {
+  // /connect reads window.location while rendering, so it keeps the empty shell.
+  const body = route === '/connect' ? { html: '', scripts: '' } : renderBody(route);
   const url = route === '/' ? `${SITE}/` : `${SITE}${route}`;
   const swaps = [
     [/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`],
@@ -78,10 +63,10 @@ function renderPage({ route, title, description, image, jsonld = [] }) {
     [/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${esc(description)}"`],
     [/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${url}"`],
     [/<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${image || DEFAULT_IMAGE}"`],
-    [/<\/head>/, `\t<link rel="canonical" href="${url}" />\n${jsonld.map((d) => `\t<script type="application/ld+json">${JSON.stringify(d).replace(/</g, '\\u003c')}</script>\n`).join('')}\t</head>`],
-    // Page text for crawlers that don't run JavaScript; createRoot replaces it on load.
-    // /connect reads window.location while rendering, so it keeps the empty shell.
-    [/<div id="root"><\/div>/, `<div id="root">${route === '/connect' ? '' : renderBody(route)}</div>`],
+    [/<\/head>/, `\t<link rel="canonical" href="${url}" />\n${body.scripts ? `\t${body.scripts}\n` : ''}\t</head>`],
+    // Page text (and the page's Helmet JSON-LD above) for crawlers that don't run
+    // JavaScript; createRoot replaces the text on load and Helmet takes over its tags.
+    [/<div id="root"><\/div>/, `<div id="root">${body.html}</div>`],
   ];
   return swaps.reduce((html, [re, rep]) => {
     if (!re.test(html)) throw new Error(`prerender-heads: pattern ${re} not found in dist/index.html`);

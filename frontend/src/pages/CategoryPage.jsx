@@ -33,7 +33,7 @@ const CategoryPage = ({ onGetQuoteClick }) => {
       name: c.title,
       description: c.description,
       url,
-      provider: { '@type': 'Organization', name: 'Swecha Enterprises', url: SITE },
+      provider: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Swecha Enterprises', url: SITE },
       about: { '@type': 'ItemList', itemListElement: c.items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name })) },
       areaServed: [{ '@type': 'State', name: 'Andhra Pradesh' }, { '@type': 'State', name: 'Telangana' }],
     },

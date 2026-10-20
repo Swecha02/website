@@ -8,6 +8,6 @@ import App from '@/App';
 
 export const render = (url) => {
   const html = renderToString(<StaticRouter location={url}><App /></StaticRouter>);
-  Helmet.renderStatic(); // react-helmet accumulates server-side state unless drained
-  return html;
+  // Draining renderStatic() also stops react-helmet accumulating state between renders.
+  return { html, scripts: Helmet.renderStatic().script.toString() };
 };
