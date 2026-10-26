@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from 'lucide-react';
 import { resetConsent } from '@/components/CookieConsent';
 
 const Footer = () => {
@@ -57,6 +57,9 @@ const Footer = () => {
               </a>
               <a href="https://in.linkedin.com/company/swecha-enterprises" target="_blank" rel="noopener noreferrer" aria-label="Swecha Enterprises on LinkedIn" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/swechaenterprises" target="_blank" rel="noopener noreferrer" aria-label="Swecha Enterprises on Instagram" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
