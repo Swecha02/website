@@ -16,6 +16,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import QuoteModal from '@/components/QuoteModal';
 import { trackPageVisit } from '@/lib/api';
+import ScrollToTop from '@/components/ScrollToTop';
 
 // Admin pages pull in jsPDF/jspdf-autotable/chart libraries — code-split so
 // public visitors never download that weight.
@@ -75,6 +76,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Routes>
         {/* Admin Routes - No Header/Footer */}
         <Route path="/admin" element={
