@@ -13,7 +13,7 @@ import { render as renderBody } from '../node_modules/.cache/ssr/entry-server.js
 
 const SITE = 'https://swechaenterprises.com';
 const DIST = 'dist';
-const DEFAULT_IMAGE = `${SITE}/images/swecha-logo.jpg`;
+const DEFAULT_IMAGE = `${SITE}/images/og/default.jpg`;
 
 // Static pages: read the <Helmet> title/description straight from the page
 // source so there's one place to edit them.
